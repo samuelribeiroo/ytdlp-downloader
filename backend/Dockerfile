@@ -12,7 +12,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-COPY . .\
+COPY . .
+
 RUN chmod +x ./node_modules/.bin/tsc && npx tsc
 
 EXPOSE 3333
