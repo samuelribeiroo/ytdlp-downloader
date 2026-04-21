@@ -13,13 +13,12 @@ WORKDIR /app
 
 COPY package*.json ./
 
-# Instala TODAS as dependências incluindo devDependencies (precisa do tsc)
 RUN npm install
 
 COPY . .
 
-# Compila o TypeScript
-RUN ./node_modules/.bin/tsc
+# Garante permissão e compila
+RUN chmod +x ./node_modules/.bin/tsc && npx tsc
 
 EXPOSE 3333
 
