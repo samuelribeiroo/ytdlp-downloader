@@ -19,6 +19,9 @@ export async function convertToMp3(url: string): Promise<string> {
       "--audio-quality", "0",
       "--output", outputTemplate,
       "--no-playlist",
+      "--js-runtimes", "nodejs",
+      "--extractor-retries", "3",
+      "--no-check-certificates",
     ]);
   } catch (err: any) {
     throw new Error(`Falha no yt-dlp: ${err.stderr || err.message}`);
